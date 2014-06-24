@@ -6,7 +6,8 @@ const int N=1000000;
 long long memo[N];
 
 int main(void){
-	int ans = 0;
+	int ans = -1;
+	int ma = 0;
 
 	//memoの初期化
 	for(int i=0; i<N; i++){
@@ -34,7 +35,10 @@ int main(void){
 		if(n == 1)cnt++;
 		memo[i] = cnt;
 
-		if(cnt > ans) ans = cnt;
+		if(cnt > ma) {
+			ma = cnt;
+			ans = i;
+		}
 	}
 
 	cout << ans << endl;
